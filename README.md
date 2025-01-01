@@ -10,8 +10,8 @@
 ### Installation
 1. Clone the repository:
   ```sh
-  git clone https://github.com/AstroArbaaz/ecommerce_api_task.git
-  cd ecommerce_api_task
+  git clone https://github.com/AstroArbaaz/api_task.git
+  cd api_task
   ```
 
 2. Install dependencies:
