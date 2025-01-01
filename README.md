@@ -49,6 +49,18 @@
 
 2. The server will be running at `http://localhost:4000`.
 
+### Seeding the Database
+
+To seed the database with initial data, follow these steps:
+
+1. Uncomment the `seedDatabase()` function call at the bottom of the `server.ts` file.
+2. Run the server to execute the seeding script:
+  ```bash
+  npm run dev
+  ```
+3. Once the seeding is complete, you can comment out the `seedDatabase()` function call again to prevent reseeding on every server start.
+
+
 ## API Contracts
 
 ### User
