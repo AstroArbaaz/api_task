@@ -1,0 +1,58 @@
+services:
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     DATABASE_URL: "postgresql://user:password@db:5432/ticketdb"
+  #     MEMCACHED_HOST: "memcached"
+  #     MEMCACHED_PORT: 11211
+  #   depends_on:
+  #     - db
+  #     - rabbitmq
+  #     - memcached
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+
+  db:
+    image: postgres:17-alpine
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ticketdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  memcached:
+    image: memcached:1.6-alpine
+    container_name: memcached
+    ports:
+      - "11211:11211"
+
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   # entrypoint: ["./wait-for-it.sh", "localhost:5432", "--", "npx", "prisma", "migrate", "deploy"]
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     DATABASE_URL: "postgresql://user:password@localhost:5432/ticketdb"
+  #     MEMCACHED_HOST: "memcached"
+  #     MEMCACHED_PORT: 11211
+  #   depends_on:
+  #     - db
+  #     # - rabbitmq
+  #     - memcached
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+
+volumes:
+  pgdata:
