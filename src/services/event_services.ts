@@ -63,3 +63,26 @@ export const deleteEvent = async (id: string) => {
     throw error;
   }
 };
+
+// export const bookEvent = async (eventId: string, userId: string) => {
+//   try {
+//     const event = await prisma.event.findUnique({
+//       where: { id: eventId },
+//     });
+
+//     if (!event) {
+//       throw new Error("Event not found");
+//     }
+
+//     const booking = await prisma.booking.create({
+//       data: {
+//         eventId,
+//         userId,
+//       },
+//     });
+
+//     return booking;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
