@@ -10,10 +10,10 @@ import {
 
 const router = express.Router();
 
-router.post("/seats", handleCreateSeat);
-router.get("/seats", handleGetSeats);
-router.get("/seats/:id", handleGetSeatById);
-router.put("/seats/:id", handleUpdateSeat);
-router.delete("/seats/:id", handleDeleteSeat);
+router.post("/", handleCreateSeat);
+router.get("/", handleGetSeats);
+router.get("/:id", handleGetSeatById);
+router.put("/:id", handleUpdateSeat);
+router.delete("/:id", handleDeleteSeat);
 
 export default router;

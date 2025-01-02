@@ -120,6 +120,10 @@ To seed the database with initial data, follow these steps:
   - **URL:** `/api/events/:id`
   - **Method:** `GET`
 
+- **Get Event's Available Seats Details by ID**
+  - **URL:** `/api/events/:id/seats`
+  - **Method:** `GET`
+
 - **Update Event**
   - **URL:** `/api/events/:id`
   - **Method:** `PUT`
@@ -129,6 +133,16 @@ To seed the database with initial data, follow these steps:
       "name": "string",
       "date": "string",
       "totalSeats": "number"
+    }
+    ```
+
+- **Book Event Seats**
+  - **URL:** `/api/events/:id/book`
+  - **Method:** `POST`
+  - **Body:**
+    ```json
+    {
+      "seats": "array",
     }
     ```
 

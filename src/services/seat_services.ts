@@ -186,3 +186,4 @@ export const deleteSeat = async (id: string) => {
     throw error;
   }
 };
+

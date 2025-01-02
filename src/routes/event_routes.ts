@@ -1,12 +1,14 @@
 import express from "express";
-import { handleCreateEvent,handleGetEventById, handleGetEvents, handleUpdateEvent, handleDeleteEvent } from "../controllers/event_controller";
+import { handleCreateEvent,handleGetEventById, handleGetEvents, handleUpdateEvent, handleDeleteEvent, handleGetSeatAvailability, handleBookSeats } from "../controllers/event_controller";
 
 const router = express.Router();
 
-router.post("/events", handleCreateEvent);
-router.get("/events", handleGetEvents);
-router.get("/events/:id", handleGetEventById);
-router.put("/events/:id", handleUpdateEvent);
-router.delete("/events/:id", handleDeleteEvent);
+router.post("/", handleCreateEvent);
+router.get("/", handleGetEvents);
+router.get("/:id", handleGetEventById);
+router.put("/:id", handleUpdateEvent);
+router.delete("/:id", handleDeleteEvent);
+router.get("/:eventId/seats", handleGetSeatAvailability);
+router.post("/:eventId/book", handleBookSeats);
 
 export default router;

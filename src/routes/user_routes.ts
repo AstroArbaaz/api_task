@@ -3,8 +3,8 @@ import {handleCreateUser, handleLogin, handleUpdateUser} from "../controllers/us
 
 const router = express.Router();
 
-router.post("/users", handleCreateUser);
+router.post("/", handleCreateUser);
 router.post("/login", handleLogin);
-router.put("/users/:id", handleUpdateUser);
+router.put("/:id", handleUpdateUser);
 
 export default router;

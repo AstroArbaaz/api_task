@@ -86,3 +86,23 @@ export const deleteEvent = async (id: string) => {
 //     throw error;
 //   }
 // };
+
+export const getSeatAvailability = async (eventId: string) => {
+  const seats = await prisma.seat.findMany({
+    where: { eventId },
+    select: { id: true, status: true },
+  });
+  return seats;
+};
+
+export const bookSeats = async (eventId: string, seats: string[]) => {
+  const bookingResult = await prisma.seat.updateMany({
+    where: {
+      eventId,
+      id: { in: seats },
+      status: "available",
+    },
+    data: { status: "booked" },
+  });
+  return bookingResult.count > 0;
+};
